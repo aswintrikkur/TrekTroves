@@ -3,11 +3,13 @@ const router = express.Router();
 require("dotenv").config();
 
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
 
     try {
 
-        const { start, end } = req.params;
+        console.log(req.body);
+        // console.log(res);
+        const { start, end } = req.body;
         // if(start!=='' && end!==""){
 
         const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
@@ -20,7 +22,7 @@ router.get("/", async (req, res) => {
         })
 
     } catch (error) {
-        res.status(400).json({
+        res.status(404).json({
             message: error
         })
     }

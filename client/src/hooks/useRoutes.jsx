@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 export const useRoutes = () => {
 
@@ -40,15 +41,17 @@ export const useRoutes = () => {
     // }
     const API = 'http://localhost:3006/api/fetchDirection';
 
+
     const fetchDirections = async (start, end) => {
 
+        console.log({start:start,end:end});
         try {
             const response = await axios({
                 url: API,
-                method: 'GET',
-                params: {
-                    start,
-                    end
+                method: 'POST',
+                body:{
+                    start:start,
+                    end:end
                 }
             })
         } catch (error) {
