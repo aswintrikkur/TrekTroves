@@ -29,19 +29,28 @@ const routesSlice = createSlice({
             const decodedPolyline = decodeString(route);
             state.currentDecodedPolyline = decodedPolyline
             
-            state.routes.push(route);
+            // state.routes.push(route);
             console.timeEnd('addCurrentRoute')
         },
         getCurrentRoute: (state, action) => {
             return state.currentDecodedPolyline;
         },
-        getRoutes: (state, action) => {
+        addAllRoutes:(state,action)=>{
+            const {routes} = action.payload;
+            let decode=[] ;
+            routes.forEach(route => {
+                decode.push(route?.overview_polyline?.points)
+            });
+            state.allRoutesPolylines = decode;
+
+        },
+        getAllRoutes: (state, action) => {
             return state.routes;
         }
     }
 });
 
-export const { addStartPoint, addEndPoint, addCurrentRoute, getCurrentRoute, getRoutes } = routesSlice.actions;
+export const { addStartPoint, addEndPoint, addCurrentRoute, getCurrentRoute, addAllRoutes, getAllRoutes } = routesSlice.actions;
 
 // export const menuReducer = menuSlice.reducer; 
 export default routesSlice.reducer; 

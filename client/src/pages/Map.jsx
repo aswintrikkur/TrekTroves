@@ -15,15 +15,17 @@ export const MapPage = () => {
 
     const { currentEncodedPolyline,currentDecodedPolyline,allRoutesPolylines } = useSelector(state => state.routes)
 
-    console.log('currentEncoded polyline====', currentEncodedPolyline);
+    // console.log('currentEncoded polyline====', currentEncodedPolyline);
     console.log('currentDecoded polyline====', currentDecodedPolyline);
 
     console.log('all routes===========', allRoutesPolylines);
 
-    const path = useMemo(() => {
+    const staticPath = useMemo(() => {
         return decodeString(polylineEncoded);
     }, [])
 
+    const path = currentDecodedPolyline || staticPath ;
+    
     const mapCenter = useMemo(() => {
         return console.log(path[Math.floor(path.length - 1 / 2)]);
     }, [])

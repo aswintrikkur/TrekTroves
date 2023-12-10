@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addCurrentRoute } from '../../redux/features/routesSlice'
+import { addAllRoutes, addCurrentRoute } from '../../redux/features/routesSlice'
 import { useRoutes } from '../../hooks/useRoutes'
 
 export const FetchLocationButton = ({ text }) => {
@@ -17,6 +17,8 @@ export const FetchLocationButton = ({ text }) => {
             console.log(dirResponse);
             const encodedPolyline = dirResponse?.data?.routes[0]?.overview_polyline?.points;
             dispatch(addCurrentRoute({route: encodedPolyline}))
+
+            dispatch(addAllRoutes({routes:dirResponse?.data?.routes}))
 
         } catch (error) {
             console.log(error);
