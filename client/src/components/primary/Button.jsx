@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addRoute } from '../redux/features/routesSlice'
+import { addRoute } from '../../redux/features/routesSlice'
 
 export const Button = ({ text, onClick }) => {
 

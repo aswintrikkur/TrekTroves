@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Container } from "../components/Container";
-import { MapModal } from "../components/MapModal";
-import { MapModalTest } from "../components/MapModalTest";
-import { InputField } from "../components/InputField";
+import { Container } from "../components/primary/Container";
+import { MapModal } from "../components/ref/MapModal";
+import { MapModalTest } from "../components/ref/MapModalTest";
+import { InputField } from "../components/primary/InputField";
 import { decode, encode } from "@googlemaps/polyline-codec";
-import { MapPage } from "../components/map/Map";
-import { Button } from "../components/Button";
+import { Button } from "../components/primary/Button";
 import { fetchRoute } from "../utils/gmap";
+import { MapPage } from "./Map";
 
 export const Home = () => {
 

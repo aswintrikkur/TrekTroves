@@ -1,10 +1,12 @@
 import React, { useMemo, useRef, useState } from "react";
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMapEvents } from "react-leaflet";
-import { tolls } from '../../data/tolls/tolls'
-import { polylineEncoded } from "../../data/directions/directions";
-import { decodeString } from "../../utils/polylines";
-import { Icon } from "leaflet";
-import { Button } from "../Button";
+import { tolls } from '../data/tolls/tolls'
+import { polylineEncoded } from "../data/directions/directions";
+import { decodeString } from "../utils/polylines";
+import { Control, Icon } from "leaflet";
+import { Button } from "../components/primary/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { addEndPoint, addStartPoint } from "../redux/features/routesSlice";
 
 
 // import MapInfo from "./MapInfo";
@@ -28,6 +30,12 @@ const iconMarkerEnd = new Icon({
 
 
 })
+const iconMarkerDrop = new Icon({
+    iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/map-pin-icon.png",
+    iconSize: [22, 26]
+
+
+})
 const iconToll = new Icon({
     iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/green-circle-icon.png",
     iconSize: [20, 20]
@@ -46,9 +54,9 @@ export const MapPage = () => {
     }, [])
 
 
-    console.log('path====', path);
+    // console.log('path====', path);
 
-    
+
 
     return (
 
@@ -88,15 +96,18 @@ export const MapPage = () => {
                     </Popup>
                 </Marker>
 
-                <LocationMarker />
+                <CurrentLocationMarker />
+
+                <DropMarker />
             </MapContainer>
+
         </div>
 
     )
 }
 
 // Find current Location========
-function LocationMarker() {
+function CurrentLocationMarker() {
     const [position, setPosition] = useState(null)
 
     const locateMe = document.getElementById('LocateMeButton');
@@ -113,6 +124,46 @@ function LocationMarker() {
         <Marker position={position} icon={iconMe}>
             <Popup>You are here</Popup>
         </Marker>
+    )
+}
+
+// drop pin =============================
+function DropMarker() {
+    const [display, setDisplay] = useState({ start: false, end: false })
+
+    const dispatch = useDispatch();
+    const { startPoint, endPoint } = useSelector(state => state.routes)
+
+    // const locateMe = document.getElementById('LocateMeButton');
+    // locateMe.addEventListener('click', () => map.locate());
+
+    const map = useMapEvents({
+        click(e) {
+            // console.log(e.latlng.lat);
+            
+            dispatch(addStartPoint([e?.latlng?.lat, e?.latlng?.lng]))
+            setDisplay(prev => ({ ...prev, start: true }))
+        },
+        dblclick(e) {
+            dispatch(addEndPoint([e?.latlng?.lat, e?.latlng?.lng]))
+            setDisplay(prev => ({ ...prev, end: true }))
+        }
+
+    })
+
+    console.log(display);
+
+    return (
+        <>
+            {display.start && < Marker position={startPoint} icon={iconMarkerDrop} >
+                <Popup>Start Point</Popup>
+            </Marker >}
+
+            {display.end && <Marker position={endPoint} icon={iconMarkerDrop}>
+                <Popup>End Point</Popup>
+            </Marker>}
+        </>
+
     )
 }
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Circle, CircleMarker, MapContainer, Marker, Polyline, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { decodeString } from '../utils/polylines';
-import { findRoute, markPoint } from '../utils/react-leaflet';
+import { decodeString } from '../../utils/polylines';
+import { findRoute, markPoint } from '../../utils/react-leaflet';
 // import withStyles from 'isomorphic-style-loader/lib/withStyles';
 // import leafletCss from '!isomorphic-style-loader!css-loader?modules=false!leaflet/dist/leaflet.css'; //if use isomorphic-style-loader
 // import s from './GenerateMap.css';
