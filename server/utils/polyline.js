@@ -3,7 +3,7 @@ const { decode, encode } = require ("@googlemaps/polyline-codec");
 
 
 const encoded = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
-console.log(decode(encoded, 5));
+// console.log(decode(encoded, 5));
 
 
 const path = [
@@ -11,7 +11,7 @@ const path = [
   [40.7, -120.95],
   [43.252, -126.453],
 ];
-console.log(encode(path, 5));
+// console.log(encode(path, 5));
 
 
 //===============================

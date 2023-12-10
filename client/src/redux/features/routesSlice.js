@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { decodeString } from '../../utils/polylines';
 
 const INITIAL_STATE = {
     startPoint: [],
     endPoint: [],
-    routes: [],
-    currentRoute: {}
+    currentEncodedPolyline: '',
+    currentDecodedPolyline: '',
+    allRoutesPolylines: [],
 }
 
 
@@ -18,14 +20,20 @@ const routesSlice = createSlice({
         addEndPoint: (state, action) => {
             state.endPoint = action.payload;
         },
-        addRoute: (state, action) => {
+        addCurrentRoute: (state, action) => {
+            console.time('addCurrentRoute')
             const { route } = action.payload;
-
-            state.currentRoute = route;
+            state.currentEncodedPolyline = route;
+            
+            // decoding polyline
+            const decodedPolyline = decodeString(route);
+            state.currentDecodedPolyline = decodedPolyline
+            
             state.routes.push(route);
+            console.timeEnd('addCurrentRoute')
         },
-        getCurrentRoutes: (state, action) => {
-            return state.currentRoute;
+        getCurrentRoute: (state, action) => {
+            return state.currentDecodedPolyline;
         },
         getRoutes: (state, action) => {
             return state.routes;
@@ -33,7 +41,7 @@ const routesSlice = createSlice({
     }
 });
 
-export const {  addStartPoint, addEndPoint , addRoute, getCurrentRoutes, getRoutes } = routesSlice.actions;
+export const { addStartPoint, addEndPoint, addCurrentRoute, getCurrentRoute, getRoutes } = routesSlice.actions;
 
 // export const menuReducer = menuSlice.reducer; 
 export default routesSlice.reducer; 

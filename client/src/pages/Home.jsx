@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import { Container } from "../components/primary/Container";
-import { MapModal } from "../components/ref/MapModal";
-import { MapModalTest } from "../components/ref/MapModalTest";
 import { InputField } from "../components/primary/InputField";
-import { decode, encode } from "@googlemaps/polyline-codec";
-import {  FetchLocationButton } from "../components/primary/Button";
-import { fetchRoute } from "../utils/gmap";
+import { FetchLocationButton } from "../components/primary/Button";
 import { MapPage } from "./Map";
-import { useRoutes } from "../hooks/useRoutes";
 
 export const Home = () => {
-
-	// const encoded = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
-	// console.log(decode(encoded, 5));
 
 
 	return (
@@ -26,12 +18,10 @@ export const Home = () => {
 						<InputField name='Departure' placeholder='Departure' />
 						<InputField name='Destination' placeholder='Destination' />
 
-						<FetchLocationButton  text='Fetch Route' />
-						{/* <MapModal /> */}
-
+						<FetchLocationButton text='Fetch Route' />
 					</div>
 					<MapPage />
-					{/* <MapModalTest /> */}
+
 				</div>
 			</div>
 		</Container>

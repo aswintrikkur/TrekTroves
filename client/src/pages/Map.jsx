@@ -1,23 +1,32 @@
 import React, { useMemo } from "react";
+import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Polyline, Popup, TileLayer } from "react-leaflet";
 import { polylineEncoded } from "../data/directions/directions";
 import { decodeString } from "../utils/polylines";
 import { iconMarkerEnd, iconMarkerStart } from "../components/map/MarkerIcons";
 import { DropMarker } from "../components/map/DropMarkers";
 import { CurrentLocationMarker } from "../components/map/CurrentLocationMarker";
+import { useSelector } from "react-redux";
 
 
 
 
 export const MapPage = () => {
 
+    const { currentEncodedPolyline,currentDecodedPolyline,allRoutesPolylines } = useSelector(state => state.routes)
+
+    console.log('currentEncoded polyline====', currentEncodedPolyline);
+    console.log('currentDecoded polyline====', currentDecodedPolyline);
+
+    console.log('all routes===========', allRoutesPolylines);
+
     const path = useMemo(() => {
         return decodeString(polylineEncoded);
     }, [])
 
-
-    // console.log('path====', path);
-
+    const mapCenter = useMemo(() => {
+        return console.log(path[Math.floor(path.length - 1 / 2)]);
+    }, [])
 
 
     return (
@@ -28,8 +37,9 @@ export const MapPage = () => {
 
             <MapContainer
                 style={{ width: "100%", height: "100%" }}
-                center={path[100]}
-                zoom={12}
+                center={mapCenter || [10.05635, 76.32969]}
+                // center={path[100]}
+                zoom={9}
                 scrollWheelZoom={false} >
 
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -40,7 +50,7 @@ export const MapPage = () => {
                     <Popup >start</Popup>
                 </Marker>
 
-                <Marker position={[10.4195, 76.27022]} icon={iconMarkerEnd} >
+                <Marker position={path[path?.length - 1]} icon={iconMarkerEnd} >
                     <Popup>Destination</Popup>
                 </Marker>
 
