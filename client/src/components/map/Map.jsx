@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMapEvents } from "react-leaflet";
 import { tolls } from '../../data/tolls/tolls'
 import { polylineEncoded } from "../../data/directions/directions";
@@ -10,14 +10,35 @@ import { Button } from "../Button";
 // import MapInfo from "./MapInfo";
 // import Routing from "./RoutingMachine";
 
-const youIcon = new Icon({
+const iconMe = new Icon({
     iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/sport-and-awards/shooting-target-color-icon.png",
+    // iconUrl:"https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/i-am-here-icon.png",
+    iconSize: [40, 48]
+
+})
+const iconMarkerStart = new Icon({
+    // iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/pin-location-icon.png",
+    iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/circle-center-icon.png",
+    iconSize: [26, 26]
+
+})
+const iconMarkerEnd = new Icon({
+    iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/address-icon.png",
     iconSize: [38, 38]
+
+
+})
+const iconToll = new Icon({
+    iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/green-circle-icon.png",
+    iconSize: [20, 20]
 
 })
 
-export const MapPage = () => {
 
+
+
+export const MapPage = () => {
+    const popup1 = useRef(null)
     // console.log(tolls);
 
     const path = useMemo(() => {
@@ -27,6 +48,7 @@ export const MapPage = () => {
 
     console.log('path====', path);
 
+    
 
     return (
 
@@ -48,13 +70,19 @@ export const MapPage = () => {
 
                 <Polyline positions={path} pathOptions={{ color: "red" }} />
 
-                <Marker position={path[0]}  >
-                    <Popup>
-                        Start
+                <Marker position={path[0]} icon={iconMarkerStart} eventHandlers={{
+                    mouseover: () => {
+                        console.log('hovering.....');
+
+                    }
+                }} >
+
+                    <Popup  >
+                        start
                     </Popup>
                 </Marker>
 
-                <Marker position={[10.4195, 76.27022]}>
+                <Marker position={[10.4195, 76.27022]} icon={iconMarkerEnd} >
                     <Popup>
                         Destination
                     </Popup>
@@ -82,7 +110,7 @@ function LocationMarker() {
     })
 
     return position === null ? null : (
-        <Marker position={position} icon={youIcon}>
+        <Marker position={position} icon={iconMe}>
             <Popup>You are here</Popup>
         </Marker>
     )
