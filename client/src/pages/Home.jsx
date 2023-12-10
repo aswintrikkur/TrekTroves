@@ -4,14 +4,16 @@ import { MapModal } from "../components/ref/MapModal";
 import { MapModalTest } from "../components/ref/MapModalTest";
 import { InputField } from "../components/primary/InputField";
 import { decode, encode } from "@googlemaps/polyline-codec";
-import { Button } from "../components/primary/Button";
+import {  FetchLocationButton } from "../components/primary/Button";
 import { fetchRoute } from "../utils/gmap";
 import { MapPage } from "./Map";
+import { useRoutes } from "../hooks/useRoutes";
 
 export const Home = () => {
 
 	// const encoded = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
 	// console.log(decode(encoded, 5));
+
 
 	return (
 		<Container>
@@ -24,7 +26,7 @@ export const Home = () => {
 						<InputField name='Departure' placeholder='Departure' />
 						<InputField name='Destination' placeholder='Destination' />
 
-						<Button onClick={fetchRoute} text='Fetch Route' />
+						<FetchLocationButton  text='Fetch Route' />
 						{/* <MapModal /> */}
 
 					</div>

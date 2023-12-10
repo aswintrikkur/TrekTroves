@@ -13,7 +13,6 @@ const routesSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         addStartPoint: (state, action) => {
-            console.log(action.payload);
             state.startPoint = action.payload;
         },
         addEndPoint: (state, action) => {
