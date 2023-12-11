@@ -8,8 +8,8 @@ export const useRoutes = () => {
         console.log({ start: start, end: end });
         try {
             const response = await axios({
-                // url: `${SERVER_API}/api/fetchDirection` ,
-                url: `http://localhost:3006/api/fetchDirection` ,
+                url: `${SERVER_API}/api/fetchDirection` ,
+                // url: `http://localhost:3006/api/fetchDirection` ,
                 method: 'POST',
                 data: {
                     start: start,
