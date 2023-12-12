@@ -25,8 +25,8 @@ export const iconMarkerDrop = new Icon({
 
 })
 export const iconToll = new Icon({
-  iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/green-circle-icon.png",
-  iconSize: [20, 20]
+  iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/circle-icon.png",
+  iconSize: [15, 15]
 
 })
 

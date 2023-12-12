@@ -21,18 +21,8 @@ app.get('/', (req, res) => {
 })
 
 
-// const num = {new:'data'};
-// const startString = `${num[0].toString()},${num[0].toString()}`;
-// const numString = num.toString()
-// console.log(Array.isArray(num))
-// console.log(JSON.stringify(num))
-// console.log(typeof(num))
-// console.log(`?origin=${num[0],num[1]}`);
-// console.log('numstring=====',numString);
-
-
-app.use("/api/toll", tollGuruAPI);
-app.use("/api/fetchDirection", directionRoute);
+app.use("/api/directions", directionRoute);
+app.use("/api/tolls", tollGuruAPI);
 
 
 app.all("*", (req, res) => {

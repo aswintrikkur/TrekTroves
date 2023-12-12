@@ -1,4 +1,5 @@
-export const tolls = {
+ const data = {
+    
     "status": "OK",
     "summary": {
         "countries": [
@@ -84,3 +85,5 @@ export const tolls = {
         "source": ""
     }
 }
+
+export const route = data.route;
