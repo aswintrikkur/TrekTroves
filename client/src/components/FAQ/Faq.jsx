@@ -3,7 +3,7 @@ import { ChevronUp, ChevronDown } from "lucide-react";
 
 export const FaqComponent = () => {
 	return (
-		<section className="mx-auto max-w-7xl mt-20 px-2 py-10 md:px-0">
+		<section className="mx-auto max-w-7xl mt-36 px-2 py-10 md:px-0">
 			<div>
 				<div className="mx-auto  max-w-2xl lg:text-center">
 					<h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
@@ -30,11 +30,11 @@ export const FaqComponent = () => {
 					{Array.from({ length: 2 }).map((_, i) => (
 						<div
 							key={i}
-							className="cursor-pointer rounded-md border  border-gray-400 transition-all duration-200"
+							className="cursor-pointer rounded-md border w-full   border-gray-400 transition-all duration-200"
 						>
 							<button
 								type="button"
-								className="flex w-full items-start max-h-10  justify-between px-4 py-5 sm:p-6 md:items-center"
+								className="flex w-full items-start max-h-10   justify-between px-4 py-5 sm:p-6 md:items-center"
 							>
 								<span className="flex text-start text-lg font-semibold text-black">
 									How do I find tolls details

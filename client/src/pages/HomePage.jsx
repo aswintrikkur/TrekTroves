@@ -13,11 +13,20 @@ export const HomePage = () => {
 
 	return (
 		<Container>
-			<div id="homeContainer" className=" h-fit flex flex-col py-4 px-6 items-center ">
-				<h2 className=" text-3xl py-4 font-bold leading-tight text-black sm:text-4xl lg:text-5xl ">TOLL Calculator</h2>
+			<div id="homeContainer" className=" h-fit flex flex-col py-4 px-3  sm:px-6 items-center relative">
+				<div className="self-start mx-5 pt-5 mb-10">
+					<h1 className=" text-slate-900 text-2xl py-4 font-bold leading-tight text- sm:text-4xl  ">
+						Welcome to Toll Calculator
+					</h1>
+					<h3 className="w-full md:w-8/12 text-xl text-slate-800 font-medium">
+						Lorem ipsum dolor sit amet consectetur<br/> adipisicing elit. Minima modi <br/> non quo ut sequi perferendis
+						maiores? Facilis, amet.<br/> Aut explicabo, placeat nulla cupiditate ab provident quas illum
+						voluptatibus. Tenetur, recusandae.
+					</h3>
+				</div>
 
 				<div className="  flex justify-between gap-6 flex-wrap w-full px-2 py-5   ">
-					<div className="  flex-[2] flex-shrink pt-5    flex flex-col items-center ">
+					<div className="   flex-[2]  pt-5 max-w-[300px] mx-auto sm:max-w-full  sm:flex  md:flex-col  ">
 						<div className=" flex flex-col w-10/12  ">
 							<InputField placeholder="Departure" type="text" />
 							<InputField placeholder="Destination" type="text" />
@@ -25,7 +34,7 @@ export const HomePage = () => {
 							<ChooseVehicle />
 						</div>
 
-						<div className="flex w-9/12 sm:flex-col ">
+						<div className=" flex flex-col w-9/12  ">
 							<FetchButton text="Fetch Routes" onClick={fetchDirections} />
 							<FetchButton text="Fetch Tolls" onClick={fetchTolls} />
 						</div>

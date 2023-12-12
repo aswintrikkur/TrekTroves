@@ -7,11 +7,11 @@ export const TollDetails = () => {
 	// route
 
 	return !hasTolls ? null : (
-		<div id="tollDetails" className="max-w-2xl  p-2  bg-slate-800  text-slate-300 rounded-md  ">
+		<div id="tollDetails" className="max-w-2xl   p-2  bg-neutral-500  text-slate-800 rounded-md  ">
 			<h4 className="font-bold text-xl text-center py-4">Toll Details </h4>
-			<div className="h-60 flex flex-col gap-2    overflow-scroll  ">
+			<div className=" flex flex-col gap-2  h-96  overflow-scroll  ">
 				{tolls.map((data, index) => (
-					<div key={data?.id} className="  mx-2 h-fit p-3  bg-slate-600 rounded-lg justify-around mb-2 sm:flex   " >
+					<div key={data?.id} className="  mx-2 h-fit p-3  bg-neutral-400 rounded-lg justify-around mb-2 sm:flex   " >
 						{/* <h5 className='font-bold'>Toll:</h5> */}
 						<div className=" flex self-start mb-4  ">
 							<div className="font-bold ">
@@ -33,7 +33,7 @@ export const TollDetails = () => {
 								<h5>cash cost </h5>
 								<h5>tag cost return </h5>
 							</div>
-							<div className=" text-slate-200 [&>*]:after:content-['Rs'] [&>*]:after:ml-1   [&>h5]:before:content-[':'] [&>h5]:before:mx-2 [&>h5]:before:font-bold ">
+							<div className="  [&>*]:after:content-['Rs'] [&>*]:after:ml-1   [&>h5]:before:content-[':'] [&>h5]:before:mx-2 [&>h5]:before:font-bold ">
 								<h5>{data?.tagCost}</h5>
 								<h5>{data?.cashCost}</h5>
 								<h5>{data?.tagCostReturn}</h5>

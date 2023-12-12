@@ -1,6 +1,8 @@
+@import './style/gobal.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -60,13 +62,14 @@ button:active {
 
 /*================  scroll-bar style  ================ */
   ::-webkit-scrollbar {
-	width:10px;
+	width:6px;
 	height: 0px;
   }
   ::-webkit-scrollbar-thumb {
-	background-color: rgba(150, 117, 250, 0.5);
+	background-color: rgba(3, 132, 196, 0.788);
 	border-radius: 10px;
   } 
   /* ::-webkit-scrollbar-track {
 	background-color: rgb(211, 182, 146);
   } */
+

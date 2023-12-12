@@ -32,11 +32,12 @@ export const MapPage = () => {
 
     return (
 
-        <div id="mapContainer" className="bg-slate-800  p-2 h-fit min-w-[350px] " >
+        <div id="mapContainer" className="bg-neutral-500   rounded-lg p-2 mt-5 h-fit min-w-[350px] " >
 
             <LocateMeButton />
 
             <MapContainer
+            
                 // style={{ width:"max(300px,100%)", height: "max(100px,65vh)" }}
                 style={{width:"100%" , minHeight:'400px'}}
                 // style={{ width:"300px", height: "300px" }}
