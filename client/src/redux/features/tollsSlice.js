@@ -1,9 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { decodeString } from '../../utils/polylines';
-// import { route } from '../../data/tolls/tolls';
-
-
-
 
 const INITIAL_STATE = {
     hasTolls: false,
@@ -11,14 +6,9 @@ const INITIAL_STATE = {
     costs: {},
     tolls: [],
     polyline: ''
-    // hasTolls: route.hasTolls || false,
-    // distance: route.distance || {},
-    // costs: route.costs || {},
-    // tolls: route.tolls || [],
-    // polyline: route.polyline || ''
+
 
 }
-
 
 const tollsSlice = createSlice({
     name: 'tolls',

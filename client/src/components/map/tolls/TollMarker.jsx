@@ -13,7 +13,7 @@ export const TollMarkers = () => {
         <div id='tollMarkers'>
             {tolls.map((data,index) => (
 
-                <Marker position={[data?.lat, data?.lng]} icon={iconToll} key={data?.id}   >
+                <Marker position={[data?.lat, data?.lng]} icon={iconToll} key={index}   >
                     <Popup><h3> {data?.name}</h3>
                     </Popup>
                 </Marker>

@@ -1,15 +1,30 @@
-import React, { useState } from "react";
-import { ChooseVehicle, Container, FaqComponent, FetchButton, InputField, TollDetails } from "../components";
+import React, { useEffect, useState } from "react";
+import {
+	ChooseVehicle,
+	Container,
+	CostCalculation,
+	FaqComponent,
+	FetchButton,
+	InputField,
+	TollDetails,
+} from "../components";
 import { MapPage } from "./MapPage";
 import uuid from "react-uuid";
 import { useSelector } from "react-redux";
 import { useRoutes } from "../hooks/useRoutes";
 import { useTolls } from "../hooks/useTolls";
 
+// let uuidKey;
+
 export const HomePage = () => {
 	const { hasTolls } = useSelector((state) => state.tolls);
+	// const { currentDecodedPolyline } = useSelector((state) => state.routes);
 	const { fetchDirections } = useRoutes();
 	const { fetchTolls } = useTolls();
+
+	// useEffect(() => {
+	// 	uuidKey = uuid();
+	// }, [currentDecodedPolyline]);
 
 	return (
 		<Container>
@@ -19,32 +34,37 @@ export const HomePage = () => {
 						Welcome to Toll Calculator
 					</h1>
 					<h3 className="w-full md:w-8/12 text-xl text-slate-800 font-medium">
-						Lorem ipsum dolor sit amet consectetur<br/> adipisicing elit. Minima modi <br/> non quo ut sequi perferendis
-						maiores? Facilis, amet.<br/> Aut explicabo, placeat nulla cupiditate ab provident quas illum
-						voluptatibus. Tenetur, recusandae.
+						Lorem ipsum dolor sit amet consectetur
+						<br /> adipisicing elit. Minima modi <br /> non quo ut sequi perferendis maiores? Facilis, amet.
+						<br /> Aut explicabo, placeat nulla cupiditate ab provident quas illum voluptatibus. Tenetur,
+						recusandae.
 					</h3>
 				</div>
 
 				<div className="  flex justify-between gap-6 flex-wrap w-full px-2 py-5   ">
 					<div className="   flex-[2]  pt-5 max-w-[300px] mx-auto sm:max-w-full  sm:flex  md:flex-col  ">
 						<div className=" flex flex-col w-10/12  ">
-							<InputField placeholder="Departure" type="text" />
-							<InputField placeholder="Destination" type="text" />
-							<InputField placeholder="Start Time" type="number" />
+							<InputField placeholder="Departure" type="text" key="departure" />
+							<InputField placeholder="Destination" type="text" key="destination" />
+							<InputField placeholder="Start Time" type="number" key="startTime" />
 							<ChooseVehicle />
 						</div>
 
 						<div className=" flex flex-col w-9/12  ">
-							<FetchButton text="Fetch Routes" onClick={fetchDirections} />
-							<FetchButton text="Fetch Tolls" onClick={fetchTolls} />
+							<FetchButton text="Fetch Routes" onClick={fetchDirections} key="fetchRoutes" />
+							<FetchButton text="Fetch Tolls" onClick={fetchTolls} key="fetchTolls" />
 						</div>
 					</div>
 					<div className=" flex-[4]  ">
 						<MapPage />
 					</div>
 				</div>
-				<div id="tollDetailsContainer" className="max-w-2xl h-full mt-3 sm:w-full  self-end">
-					{hasTolls && <TollDetails key={uuid()} />}
+				<div className=" sm:w-full sm:justify-around md:flex md:items-top">
+						<CostCalculation />
+
+					<div id="tollDetailsContainer" className="max-w-2xl h-full mt-3 sm:w-full sm:self-center ">
+						{hasTolls && <TollDetails />}
+					</div>
 				</div>
 
 				<div className="w-full">

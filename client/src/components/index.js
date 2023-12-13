@@ -1,6 +1,7 @@
 export {iconMarkerDrop,iconMarkerEnd,iconMarkerStart,iconMe,iconToll} from './map/MarkerIcons'
 export { DropMarker } from './map/DropMarkers'
 export { CurrentLocationMarker } from './map/CurrentLocationMarker'
+export { CostCalculation} from './map/CostCalculation'
 
 export { TollMarkers } from './map/tolls/TollMarker'
 export { TollDetails } from './map/tolls/tollDetails'

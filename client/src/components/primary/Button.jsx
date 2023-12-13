@@ -22,7 +22,7 @@ export const LocateMeButton = () => {
     return (
         <div id='locateMeButtonContainer'>
             <button id="locateMeButton" 
-            className='btn-primary scale-75 m-2'
+            className='btn-primary scale-75 m-2 hover:translate-y-0 '
               // className="px-2 py-1 z-50 m-1 text-slate-900 font-bold bg-slate-500 "
               >{text}</button>
         </div>
