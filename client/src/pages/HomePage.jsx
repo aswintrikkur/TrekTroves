@@ -55,12 +55,20 @@ export const HomePage = () => {
 							<FetchButton text="Fetch Tolls" onClick={fetchTolls} key="fetchTolls" />
 						</div>
 					</div>
-					<div className=" flex-[4]  ">
+					<div className=" flex-[4]   ">
+						<div className="w-96 ml-auto text-center text-slate-900">
+							<h3 className="font-bold  "> Instructions: </h3>
+							<div className="[&>*]:font-semibold  text-left">
+								<h4> First Doule click on the map to add your destination. </h4>
+								<h4> Then single click to add your start point</h4>
+							</div>
+						</div>
+
 						<MapPage />
 					</div>
 				</div>
 				<div className=" sm:w-full sm:justify-around md:flex md:items-top">
-						<CostCalculation />
+					<CostCalculation />
 
 					<div id="tollDetailsContainer" className="max-w-2xl h-full mt-3 sm:w-full sm:self-center ">
 						{hasTolls && <TollDetails />}

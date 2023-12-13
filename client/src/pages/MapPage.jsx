@@ -8,7 +8,6 @@ import { decodeString } from "../utils/polylines";
 import uuid from "react-uuid";
 import { LocateMeButton } from "../components/primary/Button";
 
-let path = false;
 // let uuidKey;
 export const MapPage = () => {
 	const { startPoint, endPoint, currentDecodedPolyline } = useSelector((state) => state.routes);
@@ -19,17 +18,15 @@ export const MapPage = () => {
 	// }, [])
 
 	// let path = currentDecodedPolyline || false;
-	useEffect(() => {
-		path = currentDecodedPolyline || false;
+	let	path = currentDecodedPolyline || false;
 		// uuidKey = uuid();
-	}, [currentDecodedPolyline]);
 
 	// const mapCenter = useMemo(() => {
 	//     return path[Math.floor(path.length - 1 / 2)];
 	// }, [])
 
 	return (
-		<div id="mapContainer" className="bg-neutral-500   rounded-lg p-2 mt-5 h-fit min-w-[350px] ">
+		<div id="mapContainer" className="bg-neutral-500   rounded-lg p-2 mt-1 h-fit min-w-[350px] ">
 			<LocateMeButton />
 
 			<MapContainer
