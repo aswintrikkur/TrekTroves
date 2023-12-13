@@ -41,7 +41,7 @@ export const HomePage = () => {
 					</h3>
 				</div>
 
-				<div className="  flex justify-between gap-6 flex-wrap w-full px-2 py-5   ">
+				<div className="  flex justify-between gap-6 flex-wrap w-full md:flex-nowrap  px-2 py-5   ">
 					<div className="   flex-[2]  pt-5 max-w-[300px] mx-auto sm:max-w-full  sm:flex  md:flex-col  ">
 						<div className=" flex flex-col w-10/12  ">
 							<InputField placeholder="Departure" type="text" key="departure" />
@@ -56,7 +56,7 @@ export const HomePage = () => {
 						</div>
 					</div>
 					<div className=" flex-[4]   ">
-						<div className="w-96 ml-auto text-center text-slate-900">
+						<div className="md:w-96 ml-auto text-center text-slate-900">
 							<h3 className="font-bold  "> Instructions: </h3>
 							<div className="[&>*]:font-semibold  text-left">
 								<h4> First Doule click on the map to add your destination. </h4>

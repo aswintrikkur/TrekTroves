@@ -14,9 +14,9 @@ export const FaqComponent = () => {
 					</p>
 				</div>
 				<div className="mx-auto mt-8 max-w-5xl space-y-4 md:mt-16">
-					<div className="cursor-pointer rounded-md border  border-gray-400 shadow-lg transition-all duration-200">
+					<div className=" cursor-pointer rounded-md border  border-gray-400 shadow-lg transition-all duration-200">
 						<button type="button" className="flex w-full  items-center justify-between px-4 py-5 sm:p-6">
-							<span className="flex text-lg font-semibold text-black">How do I get started?</span>
+							<span className=" flex text-lg font-semibold text-black">How do I get started?</span>
 
 							<ChevronUp className="h-5 w-5 text-gray-500" />
 						</button>

@@ -10,7 +10,7 @@ export const CostCalculation = () => {
 	};
 
 	return !hasTolls ? null : (
-		<div id="costCalculation" className=" my-12 md:w-4/12 text-slate-800  [&]:text-lg ">
+		<div id="costCalculation" className=" my-12  md:w-4/12 text-slate-800  [&]:text-lg ">
 			<h2 className="text-4xl py-3 font-semibold pb-10">Expense Calculations </h2>
 
 			<div className="flex justify-between ">
