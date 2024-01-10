@@ -13,9 +13,9 @@ router.post("/", async (req, res) => {
     try {
 
         const { polyline } = req.body;
-        const jsonPolyline = JSON.stringify(polyline)
-        console.log(polyline,'===========polyline');
-        console.log(jsonPolyline,'===========polyline');
+        // const jsonPolyline = JSON.stringify(polyline)
+        // console.log(polyline,'===========polyline');
+        // console.log(jsonPolyline,'===========polyline');
 
 
         

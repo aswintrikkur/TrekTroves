@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
-	ChooseVehicle,
 	Container,
 	CostCalculation,
 	FaqComponent,
 	FetchButton,
 	InputField,
+	InputStartTime,
+	InputVehicle,
 	TollDetails,
 } from "../components";
 import { MapPage } from "./MapPage";
@@ -44,10 +45,10 @@ export const HomePage = () => {
 				<div className="  flex justify-between gap-6 flex-wrap w-full md:flex-nowrap  px-2 py-5   ">
 					<div className="   flex-[2]  pt-5 max-w-[300px] mx-auto sm:max-w-full  sm:flex  md:flex-col  ">
 						<div className=" flex flex-col w-10/12  ">
-							<InputField placeholder="Departure" type="text" key="departure" />
-							<InputField placeholder="Destination" type="text" key="destination" />
-							<InputField placeholder="Start Time" type="number" key="startTime" />
-							<ChooseVehicle />
+							<InputField placeholder="Departure" type="text" name="startPoint" key="start" />
+							<InputField placeholder="Destination" type="text" name="endPoint" key="end" />
+							<InputVehicle name="vehicle" />
+							<InputStartTime name="startTime" />
 						</div>
 
 						<div className=" flex flex-col w-9/12  ">
@@ -55,6 +56,7 @@ export const HomePage = () => {
 							<FetchButton text="Fetch Tolls" onClick={fetchTolls} key="fetchTolls" />
 						</div>
 					</div>
+
 					<div className=" flex-[4]   ">
 						<div className="md:w-96 ml-auto text-center text-slate-900">
 							<h3 className="font-bold  "> Instructions: </h3>
@@ -67,9 +69,9 @@ export const HomePage = () => {
 						<MapPage />
 					</div>
 				</div>
+
 				<div className=" sm:w-full sm:justify-around md:flex md:items-top">
 					<CostCalculation />
-
 					<div id="tollDetailsContainer" className="max-w-2xl h-full mt-3 sm:w-full sm:self-center ">
 						{hasTolls && <TollDetails />}
 					</div>

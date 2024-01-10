@@ -46,11 +46,16 @@ const routesSlice = createSlice({
         },
         getAllRoutes: (state, action) => {
             return state.routes;
+        },
+        clearRoute:(state,action)=>{
+            state.startPoint='';
+            state.endPoint='';
+            // state.currentDecodedPolyline=f
         }
     }
 });
 
-export const { addStartPoint, addEndPoint, addCurrentRoute, getCurrentRoute, addAllRoutes, getAllRoutes } = routesSlice.actions;
+export const { addStartPoint, addEndPoint, addCurrentRoute, getCurrentRoute, addAllRoutes, getAllRoutes, clearRoute } = routesSlice.actions;
 
 // export const menuReducer = menuSlice.reducer; 
 export default routesSlice.reducer; 

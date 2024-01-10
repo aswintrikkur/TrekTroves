@@ -14,15 +14,14 @@ export const iconMarkerStart = new Icon({
 })
 export const iconMarkerEnd = new Icon({
   iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/address-icon.png",
-  iconSize: [38, 38]
-
+  iconSize: [38, 38],
+  iconAnchor:[20,31]
 
 })
 export const iconMarkerDrop = new Icon({
   iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/map-pin-icon.png",
-  iconSize: [22, 26]
-
-
+  iconSize: [22, 26],
+  iconAnchor:[11,25.5],
 })
 export const iconToll = new Icon({
   iconUrl: "https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/circle-icon.png",

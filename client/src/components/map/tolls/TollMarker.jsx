@@ -15,8 +15,8 @@ export const TollMarkers = () => {
 	return !hasTolls ? null : (
 		<div id="tollMarkers">
 			{tolls.map((data, index) => (
-				<>
-					{data.type !== "barrier"
+				< >
+					{data.type !== "barrier" 
 						? ((start = [data?.start?.lat, data?.start?.lng]),
 						  (end = [data?.end?.lat, data?.end?.lng]),
 						  (point = null))

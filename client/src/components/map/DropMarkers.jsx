@@ -7,11 +7,11 @@ import uuid from 'react-uuid';
 
 
 // drop pin =============================
-export function DropMarker() {
+export function  DropMarker() {
     const [display, setDisplay] = useState({ start: false, end: false })
 
     const dispatch = useDispatch();
-    const { startPoint, endPoint } = useSelector(state => state.routes)
+    const { startPoint, endPoint, currentDecodedPolyline } = useSelector(state => state.routes)
 
     const map = useMapEvents({
         dblclick(e) { //set START point
@@ -28,7 +28,7 @@ export function DropMarker() {
     return (
         <>
             {display.start && < Marker position={startPoint} icon={iconMarkerDrop} key='start'  >
-                <Popup>Start Point</Popup>
+                <Popup>  Start Point</Popup>
             </Marker >}
 
             {display.end && <Marker position={endPoint} icon={iconMarkerDrop} key='end' >
@@ -38,3 +38,6 @@ export function DropMarker() {
 
     )
 }
+
+
+

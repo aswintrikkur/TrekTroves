@@ -66,7 +66,7 @@ button:active {
 	height: 0px;
   }
   ::-webkit-scrollbar-thumb {
-	background-color: rgba(3, 132, 196, 0.788);
+	background-color: #737373 ;
 	border-radius: 10px;
   } 
   /* ::-webkit-scrollbar-track {
