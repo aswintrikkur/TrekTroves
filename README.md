@@ -1,4 +1,4 @@
-# Toll Calculation Application <img src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/country-location-icon.png" width="40" height="40" />
+# TrekTroves <img src="https://uxwing.com/wp-content/themes/uxwing/download/location-travel-map/country-location-icon.png" width="40" height="40" />
 
 
 This project is an advanced Toll Calculator application developed using React, Node.js, Hooks, Redux, and memoization. Its primary purpose is to calculate toll costs between two waypoints via the TollGuru API, providing users with a comprehensive understanding of toll calculations.
